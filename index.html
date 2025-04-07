@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>生日卡片 - 楊佳欣</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff3e6;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      margin-top: 50px;
+    }
+    .btn-custom {
+      background-color: #ff66b2;
+      color: white;
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+    }
+    .btn-custom:hover {
+      background-color: #ff3385;
+    }
+    .hidden {
+      display: none;
+    }
+    .result {
+      background-color: #ffcccb;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+    .answer-options {
+      margin-top: 10px;
+    }
+    .answer-options button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .birthday-song {
+      margin-top: 30px;
+    }
+    .birthday-song p {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container text-center">
+    <h1>生日卡片解鎖挑戰</h1>
+    <p>親愛的佳欣，為了讓你在生日這一天感受到我對你的愛與感激，我準備了一個小小的驚喜。你需要完成這個小挑戰，才能解鎖最終的祝福語！</p>
+    
+    <div id="step1">
+      <h3>步驟 1: 回答這個問題</h3>
+      <p>在我們的生活中，有一個最美好的禮物是什麼呢？</p>
+      <div class="answer-options">
+        <button class="btn-custom" onclick="nextStep(1, true)">老公的愛</button>
+        <button class="btn-custom" onclick="nextStep(1, false)">可愛雙寶</button>
+        <button class="btn-custom" onclick="nextStep(1, false)">做網拍</button>
+      </div>
+    </div>
+    
+    <div id="step2" class="hidden">
+      <h3>步驟 2: 過去點滴</h3>
+      <p>妳還記得交往多久嗎？</p>
+      <div class="answer-options">
+        <button class="btn-custom" onclick="nextStep(2, false)">1年</button>
+        <button class="btn-custom" onclick="nextStep(2, false)">1年半</button>
+        <button class="btn-custom" onclick="nextStep(2, true)">2年</button>
+      </div>
+    </div>
+
+    <div id="step3" class="hidden">
+      <h3>步驟 3: 回想過去的日子</h3>
+      <p>照顧我們的兩個寶貝，時常讓妳感到疲憊。但還記得我們結婚紀念日嗎？</p>
+      <div class="answer-options">
+        <button class="btn-custom" onclick="nextStep(3, false)">2020/10/17</button>
+        <button class="btn-custom" onclick="nextStep(3, true)">2020/11/18</button>
+        <button class="btn-custom" onclick="nextStep(3, false)">2020/10/8</button>
+      </div>
+    </div>
+    
+    <div id="step4" class="hidden">
+      <h3>步驟 4: 感謝你的付出</h3>
+      <p>最後一步，請感受到我的深深感謝。你為家庭的無私付出，讓一切變得完美。</p>
+      <div class="answer-options">
+        <button class="btn-custom" onclick="finalStep()">我完成挑戰了！</button>
+        <button class="btn-custom" onclick="alert('請完成挑戰，才能解鎖祝福語！')">還需要再努力一點！</button>
+      </div>
+    </div>
+
+    <div id="final" class="hidden result">
+      <h2>生日快樂，親愛的老婆！</h2>
+      <p>在這特別的日子裡，我想告訴你，無論過去的日子多麼繁忙與辛苦，你的付出都是無法言喻的。我知道，作為媽媽，照顧兩位寶貝，無論是生育過程中的艱辛，還是日常的繁瑣細節，每一刻都充滿了愛與堅持。每當我看到你不辭辛勞地為家人付出，我都深感佩服與感激。</p>
+      <p>我知道這一路走來不容易，但妳依然以無限的耐心、愛心、和智慧照顧我們的孩子，讓我們的家庭充滿了幸福和溫暖。你是我心中最偉大的女人，也是最堅強的媽媽。謝謝你一直為這個家付出，為我們的未來奮鬥。</p>
+      <p>在你的生日這一天，我希望你能感受到我滿滿的愛與感謝，並且擁有屬於自己的快樂時光。願這一年，你的每一天都能被愛與幸福包圍，願你和孩子們都擁有健康、快樂的每一刻。</p>
+      
+      <h3>生日快樂，親愛的老婆！</h3>
+      
+      <!-- 生日蛋糕圖片 -->
+      <img src="cake.jpg" alt="生日蛋糕">
+
+      <!-- 全家福圖片 -->
+      <img src="family_photo.jpg" alt="全家福">
+
+      <!-- 生日快樂歌 -->
+      <div class="birthday-song">
+        <h4>生日快樂歌 (中文版):</h4>
+        <p>祝你生日快樂，祝你生日快樂，祝你生日快樂，祝你生日快樂！</p>
+        
+        <h4>Happy Birthday Song (English Version):</h4>
+        <p>Happy Birthday to you, Happy Birthday to you, Happy Birthday dear [Name], Happy Birthday to you!</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 處理每個步驟的選項
+    function nextStep(step, correctAnswer) {
+      if (correctAnswer) {
+        // 如果答案正確，隱藏當前步驟並顯示下一步
+        if (step === 1) {
+          document.getElementById('step1').classList.add('hidden');
+          document.getElementById('step2').classList.remove('hidden');
+        } else if (step === 2) {
+          document.getElementById('step2').classList.add('hidden');
+          document.getElementById('step3').classList.remove('hidden');
+        } else if (step === 3) {
+          document.getElementById('step3').classList.add('hidden');
+          document.getElementById('step4').classList.remove('hidden');
+        }
+      } else {
+        // 如果答案錯誤，顯示提示信息
+        alert('答案錯誤，拜託請再試一次！');
+      }
+    }
+
+    // 完成所有步驟後顯示最終祝福語
+    function finalStep() {
+      document.getElementById('step4').classList.add('hidden');
+      document.getElementById('final').classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>
